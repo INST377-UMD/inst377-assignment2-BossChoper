@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stocks</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Stock Viewer</h1>
+    <label for="ticker">Stock Ticker:</label>
+    <input type="text" id="ticker" />
+    <label for="duration">Duration (days):</label>
+    <select id="duration">
+      <option value="30">30</option>
+      <option value="60">60</option>
+      <option value="90">90</option>
+    </select>
+    <button class="custom-btn" onclick="getStockData()">View Chart</button>
+    <canvas id="stockChart" width="800" height="400"></canvas>
+    <h2>Top 5 Reddit Stocks</h2>
+    <div class="table-container">
+      <table id="redditTable">
+        <thead>
+          <tr><th>Ticker</th><th>Comments</th><th>Sentiment</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="voice-controls">
+      <h3>Voice Commands</h3>
+      <p>Say "hello" to get a greeting alert.<br>
+         Say "go to stocks" or "go to dogs" to navigate.<br>
+         Say "change background to blue/red/green" to change the background color.</p>
+      <button class="custom-btn" onclick="annyang.start()">Turn On Audio</button>
+      <button class="custom-btn" onclick="annyang.abort()">Turn Off Audio</button>
+    </div>
+  </div>
+  <script src="stocks.js"></script>
+</body>
+</html>
